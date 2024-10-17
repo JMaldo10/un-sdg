@@ -99,8 +99,8 @@ export class unSdg extends DDDSuper(LitElement) {
   render() {
     // Determine the image source based on the goal
     const imgSrc = this.goal === 'all'
-      ? `../public/svgs/all.svg`
-      : `../public/svgs/goal-${this.goal}${this.goal === 'circle' ? '.png' : '.svg'}`;
+      ? `../lib/svg/all.svg`
+      : `../lib/svg/goal-${this.goal}${this.goal === 'circle' ? '.png' : '.svg'}`;
 
     return html`
       <style>
@@ -114,7 +114,7 @@ export class unSdg extends DDDSuper(LitElement) {
           <img 
             src="${new URL(imgSrc, import.meta.url).href}"
             alt="${this.label}"
-            loading="${this.loading}"
+            loading="lazy"
             fetchpriority="${this.fetchPriority}"
           />
         ` : ''}
